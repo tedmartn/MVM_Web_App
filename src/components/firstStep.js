@@ -1,13 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button, Dropdown } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+
 
 const FirstStep = (props) => {
   const { register, handleSubmit, formState: {errors} }  = useForm();
-
+  const navigate=useNavigate()
   const onSubmit = (data) => {
     console.log(data);
-    this.props.history.push("/second");
+    navigate('/second');
   };
 
   return (
@@ -16,6 +18,7 @@ const FirstStep = (props) => {
         <Form.Group controlId="first_name">
           <Form.Label>First Name</Form.Label>
           <Form.Control
+            
             type="text"
             name="first_name"
             placeholder="Enter your first name"
