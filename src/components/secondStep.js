@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
 
@@ -26,19 +26,24 @@ const SecondStep = (props) => {
       <div className="col-md-6 offset-md-3">
         <Form.Group controlId="Azure_regions">
           <Form.Label>Please choose your preferred Azure Region.</Form.Label>
-        <p><select value={azure_regions} onChange={handleChange}>
-            {azure_regions.map(Item => {
-                return (<option key={Item.value}>{Item.text}</option>);
-            })}
-        </select></p>
+        <p>      
+            <select {...register("azure_regions")}>
+                <option value="eastus">East US</option>
+                <option value="westus">West US</option>
+                <option value="centralus">Central US</option>
+                <option value="northcentralus">North Central US</option>
+                <option value="westus2">West US 2</option>
+                <option value="westus3">West US 3</option>
+      </select></p>
         </Form.Group>
         <Form.Group controlId="compute_Memory">
-        <Form.Label>Please select Kubernetes or Azure Container Instances.</Form.Label>
-        <p><select value={compute_Memory} onChange={handleChange}>
-            {compute_Memory.map(Item => {
-                return (<option key={Item.value}>{Item.text}</option>);
-            })}
-        </select></p>
+        <Form.Label>Please select Azure Kubernetes Services or Azure Container Instances.</Form.Label>
+        <p>      
+            <select {...register("compute_Memory")}>
+                <option value="aks">Azure Kubernetes Services</option>
+                <option value="aci">Azure Container Instances</option>
+            </select>
+      </p>
         </Form.Group>
         <Button variant="primary" type="submit">
           Next

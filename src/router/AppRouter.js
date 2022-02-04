@@ -3,7 +3,8 @@ import {
   Routes,
   Route,
   Link,
-  Outlet
+  Outlet,
+  Router,
 } from "react-router-dom";
 import React from 'react';
 import FirstStep from '../components/firstStep';
@@ -15,8 +16,9 @@ const AppRouter = () => (
   <div className = "container">
       <Header />
       <Routes>
-          <Route path="/" element={<FirstStep/>}></Route>
-          <Route path="/second" element={<SecondStep/>}></Route>
+          <Route path="/" element={<FirstStep />}></Route>
+          <Route path="/second" element={<SecondStep />}></Route>
+          <Route path="/third" element={<SecondStep />}></Route>
       </Routes>
   </div>
   </BrowserRouter>
