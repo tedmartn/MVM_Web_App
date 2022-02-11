@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const azure_regions = [
     {value: 'eastus', text: 'eastus'},
@@ -16,9 +17,10 @@ const compute_Memory = [
 ]
 const SecondStep = (props) => {
   const { register, handleChange, handleSubmit, formState: {errors} } = useForm();
-
+  const navigate=useNavigate()
   const onSubmit = (data) => {
     console.log(data);
+    navigate('/third')
   };
 
   return (
