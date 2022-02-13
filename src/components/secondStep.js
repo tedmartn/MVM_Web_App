@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
+
+
 const azure_regions = [
     {value: 'eastus', text: 'eastus'},
     {value: 'westus', text: 'westus'},
@@ -20,6 +22,7 @@ const SecondStep = (props) => {
   const navigate=useNavigate()
   const onSubmit = (data) => {
     console.log(data);
+    props.updateUser(data);
     navigate('/third')
   };
 

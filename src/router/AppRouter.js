@@ -13,17 +13,37 @@ import SecondStep from "../components/secondStep";
 import ThirdStep from "../components/thirdStep"
 
 
-const AppRouter = () => (
+export default function AppRouter() {
+  const [user, setUser] = useState({})
+
+  
+  const updateUser = (data) => {
+    setUser((prevUser) => ({ ...prevUser, ...data }));
+  };
+  const resetUser = () => {
+    setUser({});
+  };
+  
+  return (
   <BrowserRouter>
   <div className = "container">
       <Header />
       <Routes>
-          <Route path="/" element={<FirstStep />}></Route>
-          <Route path="/second" element={<SecondStep />}></Route>
-          <Route path="/third" element={<ThirdStep />}></Route>
+      <Route
+        path="/"
+        element={<FirstStep updateUser={user} />}
+        exact={true}
+      />
+      <Route
+        path="/second"
+        element={<SecondStep updateUser={user} />}
+      />
+      <Route
+        path="/third"
+        element={<ThirdStep />}
+      />
       </Routes>
   </div>
   </BrowserRouter>
-);
-
-export default AppRouter
+  )
+}

@@ -13,7 +13,7 @@ const ThirdStep = (props) => {
         <Form className="input-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-6 offset-md-3">
             <Form.Group controlId="Random_Form">
-              <Form.Label>Please select some random datas</Form.Label>
+              <Form.Label>Microsoft Azure Subscription Authorization Form</Form.Label>
             <p>      
                 <select {...register("randomstuff")}>
                     <option value="randomdata">Random Stuff</option>

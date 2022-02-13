@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button, Dropdown } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
-
 const FirstStep = (props) => {
-  const { register, handleSubmit, formState: {errors} }  = useForm();
+  const { user } = props;
+  const { register, handleSubmit, formState: {errors} }  = useForm({
+    defaultValues: {
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email
+    }
+});
   const navigate=useNavigate()
   const onSubmit = (data) => {
     console.log(data);
     navigate('/second');
+    props.updateUser(data);
   };
 
   return (
