@@ -1,10 +1,7 @@
 import {
   BrowserRouter,
   Routes,
-  Route,
-  Link,
-  Outlet,
-  Router,
+  Route
 } from "react-router-dom";
 import React, {useState} from 'react';
 import FirstStep from '../components/firstStep';
@@ -14,15 +11,6 @@ import ThirdStep from "../components/thirdStep"
 
 
 export default function AppRouter() {
-  const [user, setUser] = useState({})
-
-  
-  const updateUser = (data) => {
-    setUser((prevUser) => ({ ...prevUser, ...data }));
-  };
-  const resetUser = () => {
-    setUser({});
-  };
   
   return (
   <BrowserRouter>
@@ -31,12 +19,12 @@ export default function AppRouter() {
       <Routes>
       <Route
         path="/"
-        element={<FirstStep updateUser={user} />}
+        element={<FirstStep />}
         exact={true}
       />
       <Route
         path="/second"
-        element={<SecondStep updateUser={user} />}
+        element={<SecondStep />}
       />
       <Route
         path="/third"
