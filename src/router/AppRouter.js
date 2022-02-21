@@ -1,7 +1,7 @@
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 import React, {useState} from 'react';
 import FirstStep from '../components/firstStep';
@@ -10,8 +10,10 @@ import SecondStep from "../components/secondStep";
 import ThirdStep from "../components/thirdStep"
 
 
+
+
 export default function AppRouter() {
-  
+
   return (
   <BrowserRouter>
   <div className = "container">
@@ -19,12 +21,12 @@ export default function AppRouter() {
       <Routes>
       <Route
         path="/"
-        element={<FirstStep />}
+        element={<FirstStep/>}
         exact={true}
       />
       <Route
         path="/second"
-        element={<SecondStep />}
+        element={<SecondStep/>}
       />
       <Route
         path="/third"
