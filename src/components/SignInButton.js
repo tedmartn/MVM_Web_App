@@ -13,5 +13,6 @@ export const SignInButton = () => {
     const { instance } = useMsal();
     return (
         <Button variant="secondary" className="ml-auto" onClick={() => handleLogin(instance)}>Click here to sign into your Microsoft Tenant</Button> 
+
     );
 }
